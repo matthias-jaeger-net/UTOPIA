@@ -46,10 +46,6 @@ class Color:
             self.red / 255.0, self.green / 255.0, self.blue / 255.0)
         return saturation
 
-    def fromHls(self, hue, lightness, saturation):
-        r, g, b = hls_to_rgb(hue, lightness, saturation)
-        return Color(int(r * 255), int(g * 255), int(b * 255))
-
     def log(self):
         # Prints the data of this color to the console
         print('rgb: ', [self.red, self.green, self.blue])
@@ -86,6 +82,10 @@ class Color:
 # Those are outside of the Color class and used by
 # the template engine I want to create later on...
 
+def fromHls(colorObj, hue, lightness, saturation):
+    r, g, b = hls_to_rgb(hue, lightness, saturation)
+    return Color(int(r * 255), int(g * 255), int(b * 255))
+
 
 def colorFromUrl(url):
     # Excpecting a valid url string like 'FFFFFF'
@@ -95,13 +95,20 @@ def colorFromUrl(url):
     return Color(red, green, blue)
 
 
+def similarColor():
+    # TODO
+    pass
+
+
 def similarColorsList(colorObj):
+    # Not working
     ret = []
     for num in range(10):
         factor = num * 0.1
         newHue = abs(colorObj.hue - factor)
-        ret.append(colorObj.fromHls(
-            newHue, colorObj.lightness, colorObj.saturation))
+        newColor = fromHls(
+            colorObj, newHue, colorObj.lightness, colorObj.saturation)
+        ret.append(newColor)
     return ret
 
 
