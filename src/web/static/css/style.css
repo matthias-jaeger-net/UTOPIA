@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.color-suggestion {
+  padding: 80px;
+}
+
+.color-suggestion a {
+  background-color: white;
+  color: black;
+}
