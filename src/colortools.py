@@ -7,11 +7,9 @@
 from colorsys import rgb_to_hls, hls_to_rgb
 from random import randint as rand
 
-# A Color(r, g, b) is created in the rgb space with regular values
-# ranging from 0 to 255 for each red, green and blue, like in Adobe...
-# The color calculates it's own hue, lightness and saturation vector
-# based on the given rgb values. Once initialized a log()
-# method is available for printing the values in the console.
+# A Color(r, g, b) is assigned with rgb values ranging from 0 to 255
+# The Color calculates it's own hue, lightness and saturation vector
+# based on the given rgb values.
 
 
 class Color:
@@ -84,8 +82,9 @@ class Color:
         print(message)
 
 
-# Tools for creating Color instances. Those are outside of the Color class
-# and used by the template engine I want to create later on...
+# Tools for creating Color instances.
+# Those are outside of the Color class and used by
+# the template engine I want to create later on...
 
 
 def colorFromUrl(url):
