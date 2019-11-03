@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      text-transform: uppercase;
+    }
+
+    header {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header span {
+      background-color: white;
+      color: black;
+      padding: 3px;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .color-suggestion {
+      padding: 80px;
+      margin: 5px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .color-table {
+      width: 180px;
+    }
+
+    .color-suggestion a {
+      background-color: white;
+      color: black;
+      padding: 3px;
+    }
+
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex .color-suggestion {
+      width: 25%;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="background-color: #{{color}};">
+    <h1><span>{{ color }}</span></h1>
+  </header>
+  <section>
+    <h2>Values calculated</h2>
+    <strong>Red:</strong> {{ red }}<br>
+    <strong>Green:</strong> {{ green }}<br>
+    <strong>Blue:</strong> {{ blue }}<br>
+    <strong>Hue:</strong> {{ hue }}<br>
+    <strong>Lightness:</strong> {{ lightness }}<br>
+    <strong>Saturation:</strong> {{ saturation }}<br>
+    <strong>Hexadecimal: </strong> {{ hexadecimal }}<br>
+  </section>
+  <section>
+    <h2>Hue variants of {{ color }}</h2>
+    <div class="flex">
+      {% for value in huetable %}
+      <div class="color-suggestion" style="background-color: #{{ value }};">
+        <a href="{{ value }}">{{ value }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section>
+    <h2>Lightness variants of {{ color }}</h2>
+    <div class="flex">
+      {% for value in lightnesstable %}
+      <div class="color-suggestion" style="background-color: #{{ value }};">
+        <a href="{{ value }}">{{ value }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section>
+    <h2>Saturation variants of {{ color }}</h2>
+    <div class="flex">
+      {% for value in saturationtable %}
+      <div class="color-suggestion" style="background-color: #{{ value }};">
+        <a href="{{ value }}">{{ value }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section>
+    <h2>More random color suggestions</h2>
+    {% for value in result %}
+    <div class="color-suggestion" style="background-color: #{{ value }}">
+      <a href="{{ value }}">{{ value }}</a>
+    </div>
+    {% endfor %}
+  </section>
+
+</body>
+
+</html>
