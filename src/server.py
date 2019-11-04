@@ -5,7 +5,6 @@ from flask import Flask, render_template
 from colortools import Color
 from colortools import randomColor
 from colortools import randomHexColorList
-from colortools import randomHexColorList
 from colortools import colorFromUrl
 
 

@@ -23,3 +23,6 @@ To make it harder for me I am using the Python programming language (in which I'
 - [ ] Solve Flask middleware
 - [ ] Simplify templates and markup
 - [ ] Simplify server code and variables
+
+### Server code
+I am basically using ideas and methods described in the flask quickstart page. https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart My code is in the file ``server.py``.
