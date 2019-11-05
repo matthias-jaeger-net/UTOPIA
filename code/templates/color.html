@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Color</title>
+</head>
+
+<body>
+  <header style="background-color: #{{color.hex}};">
+    <p>
+      colortools.Color object
+      <strong>Red:</strong> {{ color.red }}
+      <strong>Green:</strong> {{ color.green }}
+      <strong>Blue:</strong> {{ color.blue }}
+      <strong>Hue:</strong> {{ color.hue }}
+      <strong>Lightness:</strong> {{ color.lightness }}
+      <strong>Saturation:</strong> {{ color.saturation }}
+      <strong>Hexadecimal: </strong> {{ color.hex }}
+    </p>
+  </header>
+  <main>
+    {% for value in lightness %}
+    <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
+    {% endfor %}
+
+    {% for value in hue %}
+    <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
+    {% endfor %}
+
+    {% for value in saturation %}
+    <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
+    {% endfor %}
+  </main>
+  <footer>
+    {% for value in footer %}
+    <a href="{{ value }}">{{ value }}</a>
+    {% endfor %}
+  </footer>
+</body>
+
+</html>

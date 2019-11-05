@@ -95,20 +95,36 @@ def colorFromUrl(url):
     return Color(red, green, blue)
 
 
-def similarColor():
-    # TODO
-    pass
-
-
-def similarColorsList(colorObj):
-    # Not working
+def lightnessHexColorList(colorObj):
     ret = []
     for num in range(10):
         factor = num * 0.1
+        lightness = abs(colorObj.lightness - factor)
+        newColor = fromHls(
+            colorObj, colorObj.hue, lightness, colorObj.saturation)
+        ret.append(newColor.hex)
+    return ret
+
+
+def hueHexColorList(colorObj):
+    ret = []
+    for num in range(10):
+        factor = num * 0.01
         newHue = abs(colorObj.hue - factor)
         newColor = fromHls(
             colorObj, newHue, colorObj.lightness, colorObj.saturation)
-        ret.append(newColor)
+        ret.append(newColor.hex)
+    return ret
+
+
+def saturationHexColorList(colorObj):
+    ret = []
+    for num in range(10):
+        factor = num * 0.1
+        newSaturation = abs(colorObj.saturation - factor)
+        newColor = fromHls(
+            colorObj, colorObj.hue, colorObj.lightness, newSaturation)
+        ret.append(newColor.hex)
     return ret
 
 
