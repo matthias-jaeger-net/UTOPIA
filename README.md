@@ -12,7 +12,7 @@ Programming is hard, but a lot of fun to learn. To me it really depends what you
 The program code is structured in the folder ``code`` and split in two python files (``server.py``, ``colortools.py``) with the main logic.
 As assetes I wrote a simple CSS file (``style.css``) and added two HTML templates containing Flask code (``index.html``, ``colors.html``).
 
-### Done so far
+#### Done so far
 - [x] Flask is running
 - [x] Development server working
 - [x] Server code is working - no errorchecks
@@ -23,21 +23,18 @@ As assetes I wrote a simple CSS file (``style.css``) and added two HTML template
 - [x] Simplify templates and markup
 - [x] Simplify server code and variables
 
-### To do
+#### To do
 - [ ] Calculate better color lists
 - [ ] Make different sections
 - [ ] Add CSS effects like gradients
 - [ ] Start working on the actual ux (postponed)
 
 
-![cover](documentation/singlepage.png)
-
 ### Server code
-I am basically using ideas and methods described in the flask quickstart.
-https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart
-
-### Using the developmemt server
-```export FLASK_APP=server.py```
+```$ export FLASK_APP=server.py```
 
 ### Run the server
 ```$ flask run```
+
+### Viewing the rendered page in the browser
+![cover](documentation/singlepage.png)
