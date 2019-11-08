@@ -4,13 +4,13 @@
 from flask import Flask, render_template
 
 # Custom Functionality to handle colors
-from src.colortools import Color
-from src.colortools import randomColor
-from src.colortools import colorFromUrl
-from src.colortools import randomHexColorList
-from src.colortools import hueHexColorList
-from src.colortools import lightnessHexColorList
-from src.colortools import saturationHexColorList
+from colortools import Color
+from colortools import randomColor
+from colortools import colorFromUrl
+from colortools import randomHexColorList
+from colortools import hueHexColorList
+from colortools import lightnessHexColorList
+from colortools import saturationHexColorList
 
 # Default folders 'static' & 'templates' exist
 app = Flask(__name__)

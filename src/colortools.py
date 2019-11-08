@@ -48,41 +48,49 @@ class Color:
 
     def log(self):
         # Prints the data of this color to the console
-        print('rgb: ', [self.red, self.green, self.blue])
-        print('hex: ', self.hex)
-        print('hls: ', [self.hue, self.lightness, self.saturation])
+        log = 'rgb: ' + str([self.red, self.green, self.blue]) + '\n'
+        log += 'hex: ' + str(self.hex) + '\n'
+        log += 'hls: ' + \
+            str([self.hue, self.lightness, self.saturation]) + '\n'
+        return log
 
     def analyze(self):
+
         # Procedural test of the colors values (Work in progress)
         message = 'Hello, my name is #' + str(self.hex) + ' and I am a '
+
         # Saturation test
-        if (self.saturation > 0.0 and self.saturation < 0.3):
+        if (self.saturation >= 0.0 and self.saturation <= 0.3):
             message += 'desaturated '
-        if (self.saturation > 0.3 and self.saturation < 0.6):
+        if (self.saturation >= 0.3 and self.saturation <= 0.6):
             message += 'saturated '
-        if (self.saturation > 0.6 and self.saturation < 0.9):
+        if (self.saturation >= 0.6 and self.saturation <= 1.0):
             message += 'very saturated '
+
         # Lightness test
-        if (self.lightness < 0.5):
+        if (self.lightness >= 0.0 and self.lightness <= 0.3):
             message += 'dark '
-        if (self.lightness > 0.5):
-            message += 'bright '
+        if (self.lightness >= 0.3 and self.lightness <= 0.6):
+            message += 'light '
+        if (self.lightness >= 0.6 and self.lightness <= 1.0):
+            message += 'brighter '
+
         # Tonal test
-        if (self.red > self.green and self.red > self.blue):
-            message += 'red color.'
-        if (self.green > self.red and self.green > self.blue):
-            message += 'green color.'
-        if (self.blue > self.green and self.blue > self.red):
-            message += 'blue color.'
-        # Later return message print for now
-        print(message)
+        if (self.hue >= 0.0 and self.hue <= 0.3):
+            message += 'red color '
+        if (self.hue >= 0.3 and self.hue <= 0.6):
+            message += 'green color '
+        if (self.hue >= 0.6 and self.hue <= 1.0):
+            message += 'blue color'
+
+        return message
 
 
 # Tools for creating Color instances.
 # Those are outside of the Color class and used by
 # the template engine I want to create later on...
 
-def fromHls(colorObj, hue, lightness, saturation):
+def fromHls(hue, lightness, saturation):
     r, g, b = hls_to_rgb(hue, lightness, saturation)
     return Color(int(r * 255), int(g * 255), int(b * 255))
 
@@ -100,8 +108,7 @@ def lightnessHexColorList(colorObj):
     for num in range(10):
         factor = num * 0.1
         lightness = abs(colorObj.lightness - factor)
-        newColor = fromHls(
-            colorObj, colorObj.hue, lightness, colorObj.saturation)
+        newColor = fromHls(colorObj.hue, lightness, colorObj.saturation)
         ret.append(newColor.hex)
     return ret
 
@@ -111,8 +118,7 @@ def hueHexColorList(colorObj):
     for num in range(10):
         factor = num * 0.01
         newHue = abs(colorObj.hue - factor)
-        newColor = fromHls(
-            colorObj, newHue, colorObj.lightness, colorObj.saturation)
+        newColor = fromHls(newHue, colorObj.lightness, colorObj.saturation)
         ret.append(newColor.hex)
     return ret
 
@@ -122,8 +128,7 @@ def saturationHexColorList(colorObj):
     for num in range(10):
         factor = num * 0.1
         newSaturation = abs(colorObj.saturation - factor)
-        newColor = fromHls(
-            colorObj, colorObj.hue, colorObj.lightness, newSaturation)
+        newColor = fromHls(colorObj.hue, colorObj.lightness, newSaturation)
         ret.append(newColor.hex)
     return ret
 
