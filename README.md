@@ -42,29 +42,30 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
-### Template code
+### The index template code
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <!-- Standard stuff, care about that later ... -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Surf colors for a while</title>
+  <title>UTOPIA – Surf colors for a while</title>
+  <!-- Import the static middleware from the server -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+  <!-- Flask for loop is given an iterable list of hexadecimal values -->
   {% for value in result %}
+  <!-- Create an anchor link with the color as background, href and content -->
   <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
   {% endfor %}
 </body>
-
 </html>
 ```
 
-### Extending the server code
+### Extending the server code - single page code
 My next step is to create a restful api with each color as a route & clickable link to a single page with value and brightness tables of the same given color.
 
 ```python
@@ -82,11 +83,15 @@ def single(url):
                            footer=hueHexColorList(base))
 ```
 
+### Viewing the rendered page in the browser
+![cover](documentation/singlepage.png)
+
+
 # Color code
 
+TODO
 
-
-
+# My notes
 
 #### Done so far
 - [x] Flask is running
@@ -104,8 +109,3 @@ def single(url):
 - [ ] Make different sections
 - [ ] Add CSS effects like gradients
 - [ ] Start working on the actual ux (postponed)
-
-
-
-### Viewing the rendered page in the browser
-![cover](documentation/singlepage.png)

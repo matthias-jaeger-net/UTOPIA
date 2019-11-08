@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+
+  Main Index Template for UTOPIA
+  - Author: Matthias Jäger, 2019
+  - Licence: MIT
+
+-->
+
 <head>
+  <!-- Standard stuff, care about that later ... -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Surf colors for a while</title>
+  <title>UTOPIA – Surf colors for a while</title>
+
+  <!-- Import the static middleware from the server -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
+  <!-- Flask for loop is given an iterable list of hexadecimal values -->
   {% for value in result %}
+  <!-- Create an anchor link with the color as background, href and content -->
   <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
   {% endfor %}
 </body>
