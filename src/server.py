@@ -30,7 +30,7 @@ def single(url):
                            lightness=lightnessHexColorList(base),
                            hue=hueHexColorList(base),
                            saturation=saturationHexColorList(base),
-                           footer=hueHexColorList(base))
+                           more=randomHexColorList(100))
 
 
 # Runs the server in debug mode on http://127.0.0.1:5000/

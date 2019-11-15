@@ -87,7 +87,7 @@ def single(url):
 ![cover](documentation/singlepage.png)
 
 
-# Color code
+# Color code prototype
 
 TODO
 

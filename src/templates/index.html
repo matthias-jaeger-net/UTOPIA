@@ -14,18 +14,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>UTOPIA – Surf colors for a while</title>
+  <title>An exprimental website to explore colors</title>
 
   <!-- Import the static middleware from the server -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-  <!-- Flask for loop is given an iterable list of hexadecimal values -->
-  {% for value in result %}
-  <!-- Create an anchor link with the color as background, href and content -->
-  <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
-  {% endfor %}
+
+  <header>
+    <h1>&lt;colortools&gt;</h1>
+    <p>
+      A "browsable color picker" for the web - prototype by Matthias Jäger, MIT - 2019
+    </p>
+  </header>
+
+  <main>
+    <div class="color-suggestions">
+      {% for value in result %}
+      <!-- Create an anchor link with the color as background, href and content -->
+      <a class="color-suggestion" style="background-color: #{{ value }}" href="{{ value }}">{{ value }}</a>
+      {% endfor %}
+    </div>
+
+  </main>
 </body>
 
 </html>
